@@ -1,0 +1,4 @@
+#Sat Jun 23 09:12:08 CDT 2018
+base.0=/home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex

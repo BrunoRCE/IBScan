@@ -1,0 +1,25 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 15
+    buildToolsVersion "27.0.3"
+
+    defaultConfig {
+        applicationId "com.integratedbiometrics.ibsimplescan"
+        minSdkVersion 14
+        targetSdkVersion 14
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    implementation files('libs/libibscancommon.jar')
+    implementation files('libs/libibscanultimatejni.jar')
+    implementation files('libs/libusb.jar')
+}

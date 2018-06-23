@@ -1,0 +1,45 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/build/intermediates/res/merged/debug/values_values.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "57",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "273"
+                    },
+                    "to": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "975",
+                        "endLines": "24",
+                        "endColumns": "12",
+                        "endOffsets": "1187"
+                    }
+                },
+                {
+                    "source": "/home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "2,19,7,13,12,10,11,17,16,8,6,9,3,4,15,14,5,18",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "57,938,322,626,568,469,523,830,774,375,271,418,109,167,726,680,220,882",
+                        "endColumns": "50,55,51,52,56,52,43,50,54,41,49,49,56,51,46,44,49,54",
+                        "endOffsets": "103,989,369,674,620,517,562,876,824,412,316,463,161,214,768,720,265,932"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,106,162,214,267,324,377,421,472,527,569,619,669,726,778,825,870,920",
+                        "endColumns": "50,55,51,52,56,52,43,50,54,41,49,49,56,51,46,44,49,54",
+                        "endOffsets": "101,157,209,262,319,372,416,467,522,564,614,664,721,773,820,865,915,970"
+                    }
+                }
+            ]
+        }
+    ]
+}

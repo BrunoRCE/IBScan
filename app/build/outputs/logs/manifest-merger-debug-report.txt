@@ -1,0 +1,79 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:2:1-33:12
+	package
+		ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:3:5-52
+		INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml
+		INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:5:5-34
+		INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml
+		INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:4:5-29
+		INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml
+		INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml
+uses-feature#android.hardware.usb.host
+ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:7:5-61
+	android:name
+		ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:7:19-59
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:8:5-80
+	android:name
+		ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:8:22-78
+uses-sdk
+ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:9:5-44
+INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:9:5-44
+INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:9:5-44
+INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:9:5-44
+INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:9:5-44
+	android:targetSdkVersion
+		INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml
+		ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:9:5-44
+		INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:9:15-41
+		INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml
+		INJECTED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml
+application
+ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:11:5-32:19
+	android:label
+		ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:13:9-41
+	android:icon
+		ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:12:9-38
+	android:allowBackup
+		ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:14:9-35
+activity#com.integratedbiometrics.SimpleScan.SimpleScanActivity
+ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:15:9-31:20
+	android:label
+		ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:17:13-45
+	android:configChanges
+		ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:18:13-74
+	android:theme
+		ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:19:7-54
+	android:name
+		ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:16:13-82
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:20:13-23:29
+action#android.intent.action.MAIN
+ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:21:17-69
+	android:name
+		ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:21:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:22:17-77
+	android:name
+		ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:22:27-74
+intent-filter#action:name:android.hardware.usb.action.USB_DEVICE_ATTACHED
+ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:24:13-26:29
+action#android.hardware.usb.action.USB_DEVICE_ATTACHED
+ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:25:17-90
+	android:name
+		ADDED from /home/bruno/Documentos/Programacion/Android/Recursos/SimpleScanSample/app/src/main/AndroidManifest.xml:25:25-87
