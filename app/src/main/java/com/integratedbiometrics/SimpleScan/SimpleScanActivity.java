@@ -516,7 +516,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
     }
 
     /*
-     * Timer task with using Thread
+     * Timer task usando un Thread
      */
     class _TimerTaskThreadCallback extends Thread {
         private int timeInterval;
@@ -585,11 +585,11 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
                 m_bInitializing = false;
 
                 if (ibse.getType().equals(IBScanException.Type.DEVICE_ACTIVE)) {
-                    _SetStatusBarMessage("[Error Code =-203] Device initialization failed because in use by another thread/process.");
+                    _SetStatusBarMessage("[Error Codigo =-203] La inicialización del dispositivo falló porque lo usa otro hilo / proceso.");
                 } else if (ibse.getType().equals(IBScanException.Type.USB20_REQUIRED)) {
-                    _SetStatusBarMessage("[Error Code =-209] Device initialization failed because SDK only works with USB 2.0.");
+                    _SetStatusBarMessage("[Error Codigo =-209] La inicialización del dispositivo falló porque SDK solo funciona con USB 2.0.");
                 } else {
-                    _SetStatusBarMessage("Device initialization failed.");
+                    _SetStatusBarMessage("La inicialización del dispositivo falló.");
                 }
 
                 OnMsg_UpdateDisplayResources();
@@ -602,8 +602,9 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
         if (bitmap != null) {
             final byte[] imageBuffer = new byte[width * height * 4];
             /*
-             * The image in the buffer is flipped vertically from what the Bitmap class expects;
-             * we will flip it to compensate while moving it into the buffer.
+             La imagen en el búfer se voltea verticalmente a partir
+             de lo que espera la clase Bitmap;
+             lo invertiremos para compensarlo mientras lo movemos al buffer.
              */
             for (int y = 0; y < height; y++) {
                 for (int x = 0; x < width; x++) {
@@ -672,7 +673,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
 
     protected void _DrawOverlay_ImageText(Canvas canvas) {
 /*
- * Draw text over bitmap image
+ * Dibujar texto sobre imagen de mapa de bits
  		Paint g = new Paint();
 		g.setAntiAlias(true);
 		if (m_bNeedClearPlaten)
@@ -686,7 +687,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
 */
 
         /*
-         * Draw textview over imageview
+         * Dibujar textview sobre imageview
          */
         if (m_bNeedClearPlaten)
             _SetOverlayText(m_strImageMessage, Color.RED);
@@ -715,7 +716,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
         if (image.isFinal) {
 //			if (m_chkDrawSegmentImage.isSelected())
             {
-                // Draw quadrangle for the segment image
+                // Dibujar un cuadrángulo para la imagen del segmento
 
                 _CalculateScaleFactors(image, outWidth, outHeight);
                 Paint g = new Paint();
@@ -793,8 +794,9 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
                 getIBScanDevice().setBeeper(IBScanDevice.BeepPattern.BEEP_PATTERN_GENERIC, 2/*Sol*/, 6/*150ms = 6*25ms*/, 0, 0);
             }
         } catch (IBScanException ibse) {
-            // devices for without beep chip
-            // send the tone to the "alarm" stream (classic beeps go there) with 30% volume
+            // dispositivos para sin chip bip
+            // envía el tono a la secuencia de "alarma" (los bips clásicos van allí)
+            // con un volumen del 30%
             ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 30);
             toneG.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 300); // 300 is duration in ms
             _Sleep(300 + 150);
@@ -815,8 +817,9 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
                 getIBScanDevice().setBeeper(IBScanDevice.BeepPattern.BEEP_PATTERN_GENERIC, 2/*Sol*/, 4/*100ms = 4*25ms*/, 0, 0);
             }
         } catch (IBScanException ibse) {
-            // devices for without beep chip
-            // send the tone to the "alarm" stream (classic beeps go there) with 30% volume
+            // dispositivos para sin chip bip
+            // envía el tono a la secuencia de "alarma" (los bips clásicos van allí)
+            // con un volumen del 30%
             ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 30);
             toneG.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 100); // 100 is duration in ms
             _Sleep(100 + 50);
@@ -831,8 +834,9 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
                 getIBScanDevice().setBeeper(IBScanDevice.BeepPattern.BEEP_PATTERN_GENERIC, 2/*Sol*/, 4/*100ms = 4*25ms*/, 0, 0);
             }
         } catch (IBScanException ibse) {
-            // devices for without beep chip
-            // send the tone to the "alarm" stream (classic beeps go there) with 30% volume
+            // dispositivos para sin chip bip
+            // envía el tono a la secuencia de "alarma" (los bips clásicos van allí)
+            // con un volumen del 30%
             ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 30);
             toneG.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 100); // 100 is duration in ms
         }
@@ -840,7 +844,8 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
 
     protected void _BeepDeviceCommunicationBreak() {
         for (int i = 0; i < 8; i++) {
-            // send the tone to the "alarm" stream (classic beeps go there) with 30% volume
+            // envía el tono a la secuencia de "alarma" (los bips clásicos van allí)
+            // con un volumen del 30%
             ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 30);
             toneG.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 100); // 100 is duration in ms
             _Sleep(100 + 100);
@@ -857,7 +862,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
     protected void _SetTxtNFIQScore(final String s) {
         this.m_savedData.nfiq = s;
 
-        /* Make sure this occurs on the UI thread. */
+        /* Asegúrese de que esto ocurra en el hilo de UI. */
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -884,16 +889,16 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
 
     protected void _UpdateCaptureSequences() {
         try {
-            //store currently selected device
+            // almacenar el dispositivo actualmente seleccionado
             String strSelectedText = "";
             int selectedSeq = m_cboCaptureSeq.getSelectedItemPosition();
             if (selectedSeq > -1)
                 strSelectedText = m_cboCaptureSeq.getSelectedItem().toString();
 
-            // populate combo box
+            // poblar el combobox
             m_arrCaptureSeq = new ArrayList<String>();
 
-            m_arrCaptureSeq.add("- Please select -");
+            m_arrCaptureSeq.add("- Por favor selecciona -");
             final int devIndex = this.m_cboUsbDevices.getSelectedItemPosition() - 1;
             if (devIndex > -1) {
                 IBScan.DeviceDesc devDesc = getIBScan().getDeviceDescription(devIndex);
@@ -1090,7 +1095,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
                     setLEDs |= IBScanDevice.IBSU_LED_F_RIGHT_THUMB_RED;
                 }
             }
-            ///////////////////LEFT HAND////////////////////
+            ///////////////////MANO IZQUIERDA////////////////////
             else if ((info.fingerName.equals("SFF_Left_Index")) ||
                     (info.fingerName.equals("SRF_Left_Index"))) {
                 setLEDs |= IBScanDevice.IBSU_LED_F_PROGRESS_LEFT_HAND;
@@ -1158,7 +1163,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
                     setLEDs |= IBScanDevice.IBSU_LED_F_LEFT_LITTLE_RED;
                 }
             }
-            ///////////RIGHT HAND /////////////////////////
+            ///////////MANO DERECHA /////////////////////////
             else if ((info.fingerName.equals("SFF_Right_Index")) ||
                     (info.fingerName.equals("SRF_Right_Index"))) {
                 setLEDs |= IBScanDevice.IBSU_LED_F_PROGRESS_RIGHT_HAND;
@@ -1297,7 +1302,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
 
                 m_vecCaptureSeq.clear();
 
-/** Please refer to definition below
+/** Por favor, consulte la definición a continuación
  protected final String CAPTURE_SEQ_FLAT_SINGLE_FINGER 				= "Single flat finger";
  protected final String CAPTURE_SEQ_ROLL_SINGLE_FINGER 				= "Single rolled finger";
  protected final String CAPTURE_SEQ_2_FLAT_FINGERS 					= "2 flat fingers";
@@ -1307,8 +1312,8 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
  protected final String CAPTURE_SEQ_10_FLAT_WITH_4_FINGER_SCANNER 	= "10 flat fingers with 4-finger scanner";
  */
                 if (strCaptureSeq.equals(CAPTURE_SEQ_FLAT_SINGLE_FINGER)) {
-                    _AddCaptureSeqVector("Please put a single finger on the sensor!",
-                            "Keep finger on the sensor!",
+                    _AddCaptureSeqVector("Por favor, ponga un dedo en el sensor!",
+                            "Mantenga el dedo en el sensor!",
                             IBScanDevice.ImageType.FLAT_SINGLE_FINGER,
                             1,
                             "SFF_Unknown");
@@ -1316,168 +1321,168 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
 
 
                 if (strCaptureSeq.equals(CAPTURE_SEQ_ROLL_SINGLE_FINGER)) {
-                    _AddCaptureSeqVector("Please put a single finger on the sensor!",
-                            "Roll finger!",
+                    _AddCaptureSeqVector("Por favor, ponga un dedo en el sensor!",
+                            "Rodar dedo!",
                             IBScanDevice.ImageType.ROLL_SINGLE_FINGER,
                             1,
                             "SRF_Unknown");
                 }
 
                 if (strCaptureSeq == CAPTURE_SEQ_2_FLAT_FINGERS) {
-                    _AddCaptureSeqVector("Please put two fingers on the sensor!",
-                            "Keep fingers on the sensor!",
+                    _AddCaptureSeqVector("Por favor, ponga dos dedos en el sensor!",
+                            "Mantenga los dedos en el sensor!",
                             IBScanDevice.ImageType.FLAT_TWO_FINGERS,
                             2,
                             "TFF_Unknown");
                 }
 
                 if (strCaptureSeq == CAPTURE_SEQ_10_SINGLE_FLAT_FINGERS) {
-                    _AddCaptureSeqVector("Please put right thumb on the sensor!",
-                            "Keep fingers on the sensor!",
+                    _AddCaptureSeqVector("Por favor, ponga el pulgar derecho en el sensor!",
+                            "Mantenga los dedos en el sensor!",
                             IBScanDevice.ImageType.FLAT_SINGLE_FINGER,
                             1,
                             "SFF_Right_Thumb");
 
-                    _AddCaptureSeqVector("Please put right index on the sensor!",
-                            "Keep fingers on the sensor!",
+                    _AddCaptureSeqVector("Por favor ponga el índice correcto en el sensor!",
+                            "Mantenga los dedos en el sensor!",
                             IBScanDevice.ImageType.FLAT_SINGLE_FINGER,
                             1,
                             "SFF_Right_Index");
 
-                    _AddCaptureSeqVector("Please put right middle on the sensor!",
-                            "Keep fingers on the sensor!",
+                    _AddCaptureSeqVector("Por favor ponga el centro correcto en el sensor!",
+                            "Mantenga los dedos en el sensor!",
                             IBScanDevice.ImageType.FLAT_SINGLE_FINGER,
                             1,
                             "SFF_Right_Middle");
 
-                    _AddCaptureSeqVector("Please put right ring on the sensor!",
-                            "Keep fingers on the sensor!",
+                    _AddCaptureSeqVector("Por favor ponga el anillo derecho en el sensor!",
+                            "Mantenga los dedos en el sensor!",
                             IBScanDevice.ImageType.FLAT_SINGLE_FINGER,
                             1,
                             "SFF_Right_Ring");
 
-                    _AddCaptureSeqVector("Please put right little on the sensor!",
-                            "Keep fingers on the sensor!",
+                    _AddCaptureSeqVector("Por favor, ponga poco a la derecha en el sensor!",
+                            "Mantenga los dedos en el sensor!",
                             IBScanDevice.ImageType.FLAT_SINGLE_FINGER,
                             1,
                             "SFF_Right_Little");
 
-                    _AddCaptureSeqVector("Please put left thumb on the sensor!",
-                            "Keep fingers on the sensor!",
+                    _AddCaptureSeqVector("Por favor ponga el pulgar izquierdo en el sensor!",
+                            "Mantenga los dedos en el sensor!",
                             IBScanDevice.ImageType.FLAT_SINGLE_FINGER,
                             1,
                             "SFF_Left_Thumb");
 
-                    _AddCaptureSeqVector("Please put left index on the sensor!",
-                            "Keep fingers on the sensor!",
+                    _AddCaptureSeqVector("Por favor ponga el índice izquierdo en el sensor!",
+                            "Mantenga los dedos en el sensor!",
                             IBScanDevice.ImageType.FLAT_SINGLE_FINGER,
                             1,
                             "SFF_Left_Index");
 
-                    _AddCaptureSeqVector("Please put left middle on the sensor!",
-                            "Keep fingers on the sensor!",
+                    _AddCaptureSeqVector("Por favor ponga el medio izquierdo en el sensor!",
+                            "Mantenga los dedos en el sensor!",
                             IBScanDevice.ImageType.FLAT_SINGLE_FINGER,
                             1,
                             "SFF_Left_Middle");
 
-                    _AddCaptureSeqVector("Please put left ring on the sensor!",
-                            "Keep fingers on the sensor!",
+                    _AddCaptureSeqVector("Por favor ponga el anillo izquierdo en el sensor!",
+                            "Mantenga los dedos en el sensor!",
                             IBScanDevice.ImageType.FLAT_SINGLE_FINGER,
                             1,
                             "SFF_Left_Ring");
 
-                    _AddCaptureSeqVector("Please put left little on the sensor!",
-                            "Keep fingers on the sensor!",
+                    _AddCaptureSeqVector("Por favor, ponga poco a la izquierda en el sensor!",
+                            "Mantenga los dedos en el sensor!",
                             IBScanDevice.ImageType.FLAT_SINGLE_FINGER,
                             1,
                             "SFF_Left_Little");
                 }
 
                 if (strCaptureSeq == CAPTURE_SEQ_10_SINGLE_ROLLED_FINGERS) {
-                    _AddCaptureSeqVector("Please put right thumb on the sensor!",
-                            "Roll finger!",
+                    _AddCaptureSeqVector("Por favor, ponga el pulgar derecho en el sensor!",
+                            "Rodar dedo!",
                             IBScanDevice.ImageType.ROLL_SINGLE_FINGER,
                             1,
                             "SFF_Right_Thumb");
 
-                    _AddCaptureSeqVector("Please put right index on the sensor!",
-                            "Roll finger!",
+                    _AddCaptureSeqVector("Por favor ponga el índice correcto en el sensor!",
+                            "Rodar dedo!",
                             IBScanDevice.ImageType.ROLL_SINGLE_FINGER,
                             1,
                             "SFF_Right_Index");
 
-                    _AddCaptureSeqVector("Please put right middle on the sensor!",
-                            "Roll finger!",
+                    _AddCaptureSeqVector("Por favor ponga el centro correcto en el sensor!",
+                            "Rodar dedo!",
                             IBScanDevice.ImageType.ROLL_SINGLE_FINGER,
                             1,
                             "SFF_Right_Middle");
 
-                    _AddCaptureSeqVector("Please put right ring on the sensor!",
-                            "Roll finger!",
+                    _AddCaptureSeqVector("Por favor ponga el anillo derecho en el sensor!",
+                            "Rodar dedo!",
                             IBScanDevice.ImageType.ROLL_SINGLE_FINGER,
                             1,
                             "SFF_Right_Ring");
 
-                    _AddCaptureSeqVector("Please put right little on the sensor!",
-                            "Roll finger!",
+                    _AddCaptureSeqVector("Por favor, ponga poco a la derecha en el sensor!",
+                            "Rodar dedo!",
                             IBScanDevice.ImageType.ROLL_SINGLE_FINGER,
                             1,
                             "SFF_Right_Little");
 
-                    _AddCaptureSeqVector("Please put left thumb on the sensor!",
-                            "Roll finger!",
+                    _AddCaptureSeqVector("Por favor ponga el pulgar izquierdo en el sensor!",
+                            "Rodar dedo!",
                             IBScanDevice.ImageType.ROLL_SINGLE_FINGER,
                             1,
                             "SFF_Left_Thumb");
 
-                    _AddCaptureSeqVector("Please put left index on the sensor!",
-                            "Roll finger!",
+                    _AddCaptureSeqVector("Por favor ponga el índice izquierdo en el sensor!",
+                            "Rodar dedo!",
                             IBScanDevice.ImageType.ROLL_SINGLE_FINGER,
                             1,
                             "SFF_Left_Index");
 
-                    _AddCaptureSeqVector("Please put left middle on the sensor!",
-                            "Roll finger!",
+                    _AddCaptureSeqVector("Por favor ponga el medio izquierdo en el sensor!",
+                            "Rodar dedo!",
                             IBScanDevice.ImageType.ROLL_SINGLE_FINGER,
                             1,
                             "SFF_Left_Middle");
 
-                    _AddCaptureSeqVector("Please put left ring on the sensor!",
-                            "Roll finger!",
+                    _AddCaptureSeqVector("Por favor ponga el anillo izquierdo en el sensor!",
+                            "Rodar dedo!",
                             IBScanDevice.ImageType.ROLL_SINGLE_FINGER,
                             1,
                             "SFF_Left_Ring");
 
-                    _AddCaptureSeqVector("Please put left little on the sensor!",
-                            "Roll finger!",
+                    _AddCaptureSeqVector("Por favor, ponga poco a la izquierda en el sensor!",
+                            "Rodar dedo!",
                             IBScanDevice.ImageType.ROLL_SINGLE_FINGER,
                             1,
                             "SFF_Left_Little");
                 }
 
                 if (strCaptureSeq == CAPTURE_SEQ_4_FLAT_FINGERS) {
-                    _AddCaptureSeqVector("Please put 4 fingers on the sensor!",
-                            "Keep fingers on the sensor!",
+                    _AddCaptureSeqVector("Por favor, ponga 4 dedos en el sensor!",
+                            "Mantenga los dedos en el sensor!",
                             IBScanDevice.ImageType.FLAT_FOUR_FINGERS,
                             4,
                             "4FF_Unknown");
                 }
 
                 if (strCaptureSeq == CAPTURE_SEQ_10_FLAT_WITH_4_FINGER_SCANNER) {
-                    _AddCaptureSeqVector("Please put right 4-fingers on the sensor!",
-                            "Keep fingers on the sensor!",
+                    _AddCaptureSeqVector("Por favor, ponga a la derecha 4 dedos en el sensor!",
+                            "Mantenga los dedos en el sensor!",
                             IBScanDevice.ImageType.FLAT_FOUR_FINGERS,
                             4,
                             "4FF_Right_4_Fingers");
 
-                    _AddCaptureSeqVector("Please put left 4-fingers on the sensor!",
-                            "Keep fingers on the sensor!",
+                    _AddCaptureSeqVector("Por favor, coloque los 4 dedos izquierdos en el sensor!",
+                            "Mantenga los dedos en el sensor!",
                             IBScanDevice.ImageType.FLAT_FOUR_FINGERS,
                             4,
                             "4FF_Left_4_Fingers");
 
-                    _AddCaptureSeqVector("Please put 2-thumbs on the sensor!",
-                            "Keep fingers on the sensor!",
+                    _AddCaptureSeqVector("Por favor, ponga 2-thumbs en el sensor!",
+                            "Mantenga los dedos en el sensor!",
                             IBScanDevice.ImageType.FLAT_TWO_FINGERS,
                             2,
                             "TFF_2_Thumbs");
@@ -1523,7 +1528,8 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
 						getIBScanDevice().setProperty(IBScanDevice.PropertyId.ROLL_MODE, "0");
 					}
 */
-                    // Make capture delay for display result image on multi capture mode (500 ms)
+                    // Realice un retraso de captura para mostrar la imagen
+                    // del resultado en el modo de captura múltiple (500 ms)
                     if (m_nCurrentCaptureStep > 0) {
                         _Sleep(500);
                         m_strImageMessage = "";
@@ -1534,13 +1540,13 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
                     IBScanDevice.ImageResolution imgRes = IBScanDevice.ImageResolution.RESOLUTION_500;
                     boolean bAvailable = getIBScanDevice().isCaptureAvailable(info.ImageType, imgRes);
                     if (!bAvailable) {
-                        _SetStatusBarMessage("The capture mode (" + info.ImageType + ") is not available");
+                        _SetStatusBarMessage("El modo de captura (" + info.ImageType + ") no está disponible");
                         m_nCurrentCaptureStep = -1;
                         OnMsg_UpdateDisplayResources();
                         return;
                     }
 
-                    // Start capture
+                    // Iniciar captura
                     int captureOptions = 0;
 //					if (m_chkAutoContrast.isSelected())
                     captureOptions |= IBScanDevice.OPTION_AUTO_CONTRAST;
@@ -1566,7 +1572,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
                     OnMsg_UpdateDisplayResources();
                 } catch (IBScanException ibse) {
                     ibse.printStackTrace();
-                    _SetStatusBarMessage("Failed to execute beginCaptureImage()");
+                    _SetStatusBarMessage("No se pudo ejecutar beginCaptureImage()");
                     m_nCurrentCaptureStep = -1;
                 }
             }
@@ -1609,7 +1615,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
                         m_btnCaptureStart.setEnabled(false);
                     }
 
-                    //store currently selected device
+                    //almacenar el dispositivo actualmente seleccionado
                     String strSelectedText = "";
                     int selectedDev = m_cboUsbDevices.getSelectedItemPosition();
                     if (selectedDev > -1)
@@ -1617,8 +1623,8 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
 
                     m_arrUsbDevices = new ArrayList<String>();
 
-                    m_arrUsbDevices.add("- Please select -");
-                    // populate combo box
+                    m_arrUsbDevices.add("- Por favor selecciona -");
+                    // poblar combo box
                     int devices = getIBScan().getDeviceCount();
                     setDeviceCount(devices);
 //					m_cboUsbDevices.setMaximumRowCount(devices + 1);
@@ -1682,9 +1688,9 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
 //				m_chkUseClearPlaten.setEnabled(uninitializedDev);
 
                 if (active) {
-                    m_btnCaptureStart.setText("Take Result Image");
+                    m_btnCaptureStart.setText("Tomar imagen de resultado");
                 } else {
-                    m_btnCaptureStart.setText("Start");
+                    m_btnCaptureStart.setText("Iniciar");
                 }
             }
         });
@@ -1697,14 +1703,14 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
             public void run() {
                 String askMsg;
 
-                askMsg = "[Warning = " + imageStatus.getType().toString() + "] Do you want a recapture?";
+                askMsg = "[Advertencia = " + imageStatus.getType().toString() + "] Quieres una recaptura?";
 
                 AlertDialog.Builder dlgAskRecapture = new AlertDialog.Builder(SimpleScanActivity.this);
                 dlgAskRecapture.setMessage(askMsg);
-                dlgAskRecapture.setPositiveButton("Yes",
+                dlgAskRecapture.setPositiveButton("Si",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                // To recapture current finger position
+                                // Para recuperar la posición actual de los dedos
                                 m_nCurrentCaptureStep--;
                                 OnMsg_CaptureSeqNext();
                             }
@@ -1730,7 +1736,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
                 if (getIBScanDevice() == null)
                     return;
 
-                _SetStatusBarMessage("Device communication was broken");
+                _SetStatusBarMessage("La comunicación del dispositivo se rompió");
 
                 try {
                     _ReleaseDevice();
@@ -1759,8 +1765,11 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
                         return;
 
                     if (destWidth != m_BitmapImage.getWidth() || destHeight != m_BitmapImage.getHeight()) {
-                        // if image size is changed (e.g changed capture type from flat to rolled finger)
-                        // Create bitmap again
+                        /*
+                         si se cambia el tamaño de la imagen (p. ej., tipo de captura modificada
+                         desde el dedo plano hasta el dedo enrollado) Crear bitmap nuevamente
+                         */
+
                         m_BitmapImage = Bitmap.createBitmap(destWidth, destHeight, Bitmap.Config.ARGB_8888);
                         m_drawBuffer = new byte[destWidth * destHeight * 4];
                     }
@@ -1807,7 +1816,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
 
             @Override
             public void run() {
-                // Update value in fingerQuality field and flash button.
+                // Actualizar el valor en el campo fingerQuality y el botón flash.
                 for (int i = 0; i < 4; i++) {
                     int color;
                     if (m_FingerQuality[i] == IBScanDevice.FingerQualityState.GOOD)
@@ -1832,7 +1841,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
     }
 
     /*
-     * Show Toast message on UI thread.
+     * Mostrar Toast mensaje en la UI thread.
      */
     private void showToastOnUiThread(final String message, final int duration) {
         runOnUiThread(new Runnable() {
@@ -1856,7 +1865,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
             sdkVersion = m_ibScan.getSdkVersion();
             txtValue = "SDK version: " + sdkVersion.file;
         } catch (IBScanException ibse) {
-            txtValue = "(failure)";
+            txtValue = "(fracaso)";
         }
 
         /* Make sure this occurs on the UI thread. */
@@ -1898,14 +1907,14 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
     }
 
     /*
-     * Show enlarged image in popup window.
+     * Mostrar imagen ampliada en la ventana emergente.
      */
     private void showEnlargedImage() {
         /*
          * Sanity check.  Make sure the image exists.
          */
         if (this.m_lastResultImage == null) {
-            showToastOnUiThread("No last image information", Toast.LENGTH_SHORT);
+            showToastOnUiThread("No hay información de la última imagen", Toast.LENGTH_SHORT);
             return;
         }
 
@@ -1947,7 +1956,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
         mAttacher.setOnMatrixChangeListener(new PhotoViewAttacher.OnMatrixChangedListener() {
             @Override
             public void onMatrixChanged(RectF rectF) {
-                m_txtEnlargedScale.setText(String.format("Scale : %1$.1f x", mAttacher.getScale() / zoom_1x));
+                m_txtEnlargedScale.setText(String.format("Escala : %1$.1f x", mAttacher.getScale() / zoom_1x));
             }
         });
 
@@ -1963,9 +1972,13 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
     }
 
     /*
-     * Compress the image and attach it to an e-mail using an installed e-mail client.
+     * Comprima la imagen y adjúntela a un correo electrónico
+     * utilizando un cliente de correo electrónico instalado.
      */
     private void sendImageInEmail(final ImageData imageData, final String fileName) {
+
+        Toast.makeText(this, "consumir soap sendImageInEmail", Toast.LENGTH_SHORT).show();
+
         boolean created = false;
         ArrayList ur = new ArrayList();
         try {
@@ -1993,24 +2006,24 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
 
                     ur.add(Uri.fromFile(fp));
                 } catch (IOException ioe) {
-                    Toast.makeText(getApplicationContext(), "Could not create image for e-mail", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "No se pudo crear una imagen para el correo electrónico", Toast.LENGTH_LONG).show();
                 }
             }
 
             created = true;
         } catch (IOException ioe) {
-            Toast.makeText(getApplicationContext(), "Could not create image for e-mail", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "No se pudo crear una imagen para el correo electrónico", Toast.LENGTH_LONG).show();
         }
 
 
-        /* If file was created, send the e-mail. */
+        /* Si el archivo fue creado, envíe el correo electrónico. */
         if (created) {
             attachAndSendEmail(ur, "Fingerprint Image", fileName);
         }
     }
 
     /*
-     * Attach file to e-mail and send.
+     * Adjunte el archivo a un correo electrónico y envíelo.
      */
     private void attachAndSendEmail(final ArrayList ur, final String subject, final String message) {
         final Intent i = new Intent(Intent.ACTION_SEND_MULTIPLE);
@@ -2022,17 +2035,20 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
         i.putExtra(Intent.EXTRA_TEXT, message);
 
         try {
-            startActivity(Intent.createChooser(i, "Send mail..."));
+            startActivity(Intent.createChooser(i, "Enviando email..."));
         } catch (ActivityNotFoundException anfe) {
-            showToastOnUiThread("There are no e-mail clients installed", Toast.LENGTH_LONG);
+            showToastOnUiThread("No hay clientes de correo electrónico instalados", Toast.LENGTH_LONG);
         }
     }
 
     /*
-     * Prompt to send e-mail with image.
+     * Solicitud de envío de correo electrónico con imagen.
      */
     private void promptForEmail(final ImageData imageData) {
-        /* The dialog must be shown from the UI thread. */
+        /* El diálogo debe mostrarse desde el UI thread. */
+
+        Toast.makeText(this, "consumir soap promptForEmail", Toast.LENGTH_SHORT).show();
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -2040,7 +2056,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
                 final View fileNameView = inflater.inflate(R.layout.file_name_dialog, null);
                 final AlertDialog.Builder builder = new AlertDialog.Builder(SimpleScanActivity.this)
                         .setView(fileNameView)
-                        .setTitle("Enter file name")
+                        .setTitle("Ingrese el nombre del archivo")
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(final DialogInterface dialog, final int which) {
@@ -2057,7 +2073,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
                                 threadEmail.start();
                             }
                         })
-                        .setNegativeButton("Cancel", null);
+                        .setNegativeButton("Cancelar", null);
                 EditText text = (EditText) fileNameView.findViewById(R.id.file_name);
                 text.setText(FILE_NAME_DEFAULT + "." + "png");
 
@@ -2078,11 +2094,11 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
 
 
     /* *********************************************************************************************
-     * EVENT HANDLERS
+     * EVENTOS HANDLERS
      ******************************************************************************************** */
 
     /*
-     * Handle click on "Start capture" button.
+     * Handle haga clic en el botón "Start capture".
      */
     private OnClickListener m_btnCaptureStartClickListener = new OnClickListener() {
         @Override
@@ -2098,7 +2114,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
                 try {
                     boolean IsActive = getIBScanDevice().isCaptureActive();
                     if (IsActive) {
-                        // Capture image manually for active device
+                        // Capture la imagen manualmente para el dispositivo activo
                         getIBScanDevice().captureImageManually();
                         return;
                     }
@@ -2121,7 +2137,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
     };
 
     /*
-     * Handle click on "Stop capture" button.
+     * Handle haga clic en el botón "Stop capture".
      */
     private OnClickListener m_btnCaptureStopClickListener = new OnClickListener() {
         @Override
@@ -2129,9 +2145,9 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
             if (getIBScanDevice() == null)
                 return;
 
-            // Cancel capturing image for active device.
+            // Cancele la captura de la imagen para el dispositivo activo
             try {
-                // Cancel capturing image for active device.
+                // Cancele la captura de la imagen para el dispositivo activo.
                 getIBScanDevice().cancelCaptureImage();
                 CaptureInfo tmpInfo = new CaptureInfo();
                 _SetLEDs(tmpInfo, __LED_COLOR_NONE__, false);
@@ -2139,7 +2155,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
                 m_bNeedClearPlaten = false;
                 m_bBlank = false;
 
-                _SetStatusBarMessage("Capture Sequence aborted");
+                _SetStatusBarMessage("Secuencia de captura abortada");
                 m_strImageMessage = "";
                 _SetImageMessage("");
                 OnMsg_UpdateDisplayResources();
@@ -2150,7 +2166,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
     };
 
     /*
-     * Handle long clicks on the image view.
+     * Handle clics largos en el image view.
      */
     private OnLongClickListener m_imgPreviewLongClickListener = new OnLongClickListener() {
         /*
@@ -2188,7 +2204,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
     };
 
     /*
-     * Handle click on the spinner that determine the Usb Devices.
+     * Handlehaga clic en el spinner que determina los dispositivos USB.
      */
     private OnItemSelectedListener m_cboUsbDevicesItemSelectedListener = new OnItemSelectedListener() {
         @Override
@@ -2205,7 +2221,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
     };
 
     /*
-     * Handle click on the spinner that determine the Fingerprint capture.
+     * Handle haga clic en el spinner que determina la captura de la Huella digital.
      */
     private OnItemSelectedListener m_captureTypeItemSelectedListener = new OnItemSelectedListener() {
         @Override
@@ -2227,7 +2243,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
     };
 
     /*
-     * Hide the enlarged dialog, if it exists.
+     * Ocultar el cuadro de diálogo ampliado, si existe.
      */
     private OnClickListener m_btnCloseEnlargedDialogClickListener = new OnClickListener() {
         @Override
@@ -2245,11 +2261,11 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
 
     @Override
     public void scanDeviceAttached(final int deviceId) {
-        showToastOnUiThread("Device " + deviceId + " attached", Toast.LENGTH_SHORT);
+        showToastOnUiThread("Dispositivo " + deviceId + " adjunto", Toast.LENGTH_SHORT);
 
         /*
-         * Check whether we have permission to access this device.  Request permission so it will
-         * appear as an IB scanner.
+         Verifique si tenemos permiso para acceder a este dispositivo.
+         Solicite permiso para que aparezca como un escáner de IB.
          */
         final boolean hasPermission = m_ibScan.hasPermission(deviceId);
         if (!hasPermission) {
@@ -2260,23 +2276,24 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
     @Override
     public void scanDeviceDetached(final int deviceId) {
         /*
-         * A device has been detached.  We should also receive a scanDeviceCountChanged() callback,
-         * whereupon we can refresh the display.  If our device has detached while scanning, we
-         * should receive a deviceCommunicationBreak() callback as well.
+         Un dispositivo ha sido desconectado. También deberíamos recibir
+         una devolución de llamada scanDeviceCountChanged (), donde podemos actualizar la pantalla.
+         Si nuestro dispositivo se ha desconectado durante el escaneo,
+         también deberíamos recibir una devolución de llamada de DeviceCommunicationBreak ().
          */
-        showToastOnUiThread("Device " + deviceId + " detached", Toast.LENGTH_SHORT);
+        showToastOnUiThread("Dispositivo " + deviceId + " separado", Toast.LENGTH_SHORT);
     }
 
     @Override
     public void scanDevicePermissionGranted(final int deviceId, final boolean granted) {
         if (granted) {
             /*
-             * This device should appear as an IB scanner.  We can wait for the scanDeviceCountChanged()
-             * callback to refresh the display.
+            Este dispositivo debe aparecer como un escáner de IB. Podemos esperar por el
+            devolución de llamada ScanDeviceCountChanged () para actualizar la pantalla.
              */
-            showToastOnUiThread("Permission granted to device " + deviceId, Toast.LENGTH_SHORT);
+            showToastOnUiThread("Permiso otorgado al dispositivo " + deviceId, Toast.LENGTH_SHORT);
         } else {
-            showToastOnUiThread("Permission denied to device " + deviceId, Toast.LENGTH_SHORT);
+            showToastOnUiThread("Permiso denegado al dispositivo " + deviceId, Toast.LENGTH_SHORT);
         }
     }
 
@@ -2287,7 +2304,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
 
     @Override
     public void scanDeviceInitProgress(final int deviceIndex, final int progressValue) {
-        OnMsg_SetStatusBarMessage("Initializing device..." + progressValue + "%");
+        OnMsg_SetStatusBarMessage("Inicializando el dispositivo..." + progressValue + "%");
     }
 
     @Override
@@ -2335,7 +2352,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
     public void deviceAcquisitionBegun(final IBScanDevice device, final ImageType imageType) {
         if (imageType.equals(IBScanDevice.ImageType.ROLL_SINGLE_FINGER)) {
             OnMsg_Beep(__BEEP_OK__);
-            m_strImageMessage = "When done remove finger from sensor";
+            m_strImageMessage = "Cuando termine, quite el dedo del sensor";
             _SetImageMessage(m_strImageMessage);
             _SetStatusBarMessage(m_strImageMessage);
         }
@@ -2347,8 +2364,8 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
             OnMsg_Beep(__BEEP_OK__);
         } else {
             OnMsg_Beep(__BEEP_SUCCESS__);
-            _SetImageMessage("Remove fingers from sensor");
-            _SetStatusBarMessage("Acquisition completed, postprocessing..");
+            _SetImageMessage("Retire los dedos del sensor");
+            _SetStatusBarMessage("Adquisición completada, posprocesamiento..");
         }
     }
 
@@ -2369,7 +2386,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
         m_lastResultImage = image;
         m_lastSegmentImages = segmentImageArray;
 
-        // imageStatus value is greater than "STATUS_OK", Image acquisition successful.
+        // El valor de imageStatus es mayor que "STATUS_OK", adquisición de imagen exitosa.
         if (imageStatus == null /*STATUS_OK*/ ||
                 imageStatus.getType().compareTo(IBScanException.Type.INVALID_PARAM_VALUE) > 0) {
             if (imageType.equals(IBScanDevice.ImageType.ROLL_SINGLE_FINGER)) {
@@ -2382,14 +2399,14 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
             OnMsg_DrawFingerQuality();
         }
 
-        // imageStatus value is greater than "STATUS_OK", Image acquisition successful.
+        // El valor de imageStatus es mayor que "STATUS_OK", adquisición de imagen exitosa.
         if (imageStatus == null /*STATUS_OK*/ ||
                 imageStatus.getType().compareTo(IBScanException.Type.INVALID_PARAM_VALUE) > 0) {
-            // Image acquisition successful
+            // Adquisición de imagen exitosa
             CaptureInfo info = m_vecCaptureSeq.elementAt(m_nCurrentCaptureStep);
             _SetLEDs(info, __LED_COLOR_GREEN__, false);
 
-            // SAVE IMAGE
+            // Guardar imagen
 /*			if (m_chkSaveImages.isSelected())
 			{
 				// Show chooser for output image.
@@ -2442,12 +2459,12 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
             }
 
             if (imageStatus == null /*STATUS_OK*/) {
-                m_strImageMessage = "Acquisition completed successfully";
+                m_strImageMessage = "Adquisición completada con éxito";
                 _SetImageMessage(m_strImageMessage);
                 _SetStatusBarMessage(m_strImageMessage);
             } else {
                 // > IBSU_STATUS_OK
-                m_strImageMessage = "Acquisition Warning (Warning code = " + imageStatus.getType().toString() + ")";
+                m_strImageMessage = "Adquisición de advertencia (código de advertencia = " + imageStatus.getType().toString() + ")";
                 _SetImageMessage(m_strImageMessage);
                 _SetStatusBarMessage(m_strImageMessage);
 
@@ -2457,11 +2474,11 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
             }
         } else {
             // < IBSU_STATUS_OK
-            m_strImageMessage = "Acquisition failed (Error code = " + imageStatus.getType().toString() + ")";
+            m_strImageMessage = "Adquisición fallida (Código de error = " + imageStatus.getType().toString() + ")";
             _SetImageMessage(m_strImageMessage);
             _SetStatusBarMessage(m_strImageMessage);
 
-            // Stop all of acquisition
+            // Detener toda adquisición
             m_nCurrentCaptureStep = (int) m_vecCaptureSeq.size();
         }
 
@@ -2478,14 +2495,14 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
             m_bNeedClearPlaten = false;
 
         if (platenState.equals(IBScanDevice.PlatenState.HAS_FINGERS)) {
-            m_strImageMessage = "Please remove your fingers on the platen first!";
+            m_strImageMessage = "Por favor, retire sus dedos en la platina primero!";
             _SetImageMessage(m_strImageMessage);
             _SetStatusBarMessage(m_strImageMessage);
         } else {
             if (m_nCurrentCaptureStep >= 0) {
                 CaptureInfo info = m_vecCaptureSeq.elementAt(m_nCurrentCaptureStep);
 
-                // Display message for image acuisition again
+                // Mostrar mensaje para adquisición de imágenes nuevamente
                 String strMessage = info.PreCaptureMessage;
 
                 _SetStatusBarMessage(strMessage);
@@ -2502,7 +2519,7 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
 
     @Override
     public void deviceWarningReceived(final IBScanDevice device, final IBScanException warning) {
-        _SetStatusBarMessage("Warning received " + warning.getType().toString());
+        _SetStatusBarMessage("Advertencia recibida " + warning.getType().toString());
     }
 
     @Override
@@ -2515,13 +2532,13 @@ public class SimpleScanActivity extends Activity implements IBScanListener, IBSc
         try {
             if (pressedKeyButtons == __LEFT_KEY_BUTTON__) {
                 if (selectedDev && idle) {
-                    System.out.println("Capture Start");
+                    System.out.println("Iniciar captura");
                     device.setBeeper(IBScanDevice.BeepPattern.BEEP_PATTERN_GENERIC, 2/*Sol*/, 4/*100ms = 4*25ms*/, 0, 0);
                     this.m_btnCaptureStart.performClick();
                 }
             } else if (pressedKeyButtons == __RIGHT_KEY_BUTTON__) {
                 if ((active)) {
-                    System.out.println("Capture Stop");
+                    System.out.println("Detener captura");
                     device.setBeeper(IBScanDevice.BeepPattern.BEEP_PATTERN_GENERIC, 2/*Sol*/, 4/*100ms = 4*25ms*/, 0, 0);
                     this.m_btnCaptureStop.performClick();
                 }
