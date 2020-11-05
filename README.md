@@ -1,2 +1,2 @@
 # IBScan
-Fingerprint reader application demo using the ibscan sdk
+Fingerprint reader android application demo using the ibscan sdk
